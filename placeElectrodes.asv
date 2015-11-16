@@ -4,16 +4,13 @@ function placeElectrodes( numElectrodes, electrodeSize )
 % current signal ("drive electrodes"). Electrode size is the ratio of
 % electrode width to radius. numElectrodes must be an even number.
 
-global radius C
-global driveX % x coordinates of drive electrodes
-global driveY % y cooridnates of drive electrodes
+global radius;
+global driveX; % x coordinates of dri
 
-electrodeWidth = ceil(electrodeSize*radius);
-space = floor(C/numElectrodes - electrodeWidth); % spacing between electrodes
+electrodeWidth = electrodeSize*radius;
 % Will need to designate drive electrodes, possibly with a separate array
 % of locations.
 driveX = [];
-driveY = [];
 
 
 end

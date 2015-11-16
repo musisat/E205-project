@@ -13,10 +13,13 @@ global boundX;
 global boundY;
 global boundXind;
 global boundYind;
+global radius;
+global C;
 
+radius = R; % Just to make the global variable
 potentialGrid = zeros(2*R); % Might need to change this to something more relevant.
 conductivityGrid = ones(2*R); % Boundary will be zeros.
-C = ceil(2*pi*R);
+C = ceil(2*pi*R); % Circumference
 [r,phi] = meshgrid(linspace(R,R,1),linspace(2*pi/C,2*pi,C));
 
 % Find coordinates of boundaries:
@@ -30,6 +33,7 @@ for i=1:C
     potentialGrid(boundXind(i),boundYind(i)) = 1000000; % Give boundary large voltage.
     conductivityGrid(boundXind(i),boundYind(i)) = 0;
 end
+imagesc(potentialGrid);
 
 end
 
