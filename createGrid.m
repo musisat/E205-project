@@ -3,16 +3,19 @@ function createGrid( R )
 % resolution)
 
 % WILL NEED A DATA STRUCTURE TO KEEP TRACK OF EACH CELL.
-% Might need three separate grids for impedance, current, and potential.
+% Could also have list of locations of electrodes.
+% Will need separate grids for potential and conductivity of each cell.
+% Conductivity is the reciprocal of resistivity, which has units of ohm*m.
 
-R = 11;
-global grid;
+global potentialGrid;
+global conductivityGrid;
 global boundX;
 global boundY;
 global boundXind;
 global boundYind;
 
-grid = zeros(2*R);
+potentialGrid = zeros(2*R); % Might need to change this to something more relevant.
+conductivityGrid = ones(2*R); % Boundary will be zeros.
 C = ceil(2*pi*R);
 [r,phi] = meshgrid(linspace(R,R,1),linspace(2*pi/C,2*pi,C));
 
@@ -24,9 +27,9 @@ boundYind = boundY + R + 1;
 
 % Populate boundaries:
 for i=1:C
-    grid(boundXind(i),boundYind(i)) = 1000000; % Give boundary large "impedance"
+    potentialGrid(boundXind(i),boundYind(i)) = 1000000; % Give boundary large voltage.
+    conductivityGrid(boundXind(i),boundYind(i)) = 0;
 end
-imagesc(grid)
 
 end
 
