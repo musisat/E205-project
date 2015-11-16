@@ -7,24 +7,18 @@ function createGrid( R )
 
 R = 11;
 global grid;
-global boundX;
-global boundY;
-global boundXind;
-global boundYind;
 
 grid = zeros(2*R);
 C = ceil(2*pi*R);
 [r,phi] = meshgrid(linspace(R,R,1),linspace(2*pi/C,2*pi,C));
-
 % Find coordinates of boundaries:
+% Make these coordinates global variables. Convert to indices here.
 boundX = round(r.*cos(phi));
-boundXind = boundX + R + 1;
+boundXind = boundX+R+1;
 boundY = round(r.*sin(phi));
-boundYind = boundY + R + 1;
-
 % Populate boundaries:
 for i=1:C
-    grid(boundXind(i),boundYind(i)) = 1000000; % Give boundary large "impedance"
+    grid(boundX(i)+R+1,boundY(i)+R+1) = 1000000; % Give boundary large "impedance"
 end
 imagesc(grid)
 
