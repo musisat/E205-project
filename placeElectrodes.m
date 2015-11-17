@@ -27,11 +27,13 @@ sensingX = zeros(numElectrodes-2,electrodeWidth);
 sensingY = sensingX;
 
 % Assign coordinates of sensing electrodes
-% for i=1:numElectrodes-2
-%     sensingX(i,:) = boundXind(i*(2*electrodeWidth+space)+1:i*(2*electrodeWidth+space)+electrodeWidth+1);
-%     sensingY(i,:) = boundYind(i*(2*electrodeWidth+space)+1:i*(2*electrodeWidth+space)+electrodeWidth+1);
-%     potentialGrid(sensingX(i,:),sensingY(i,:)) = 500000;
-% end
+for i=2:numElectrodes-1
+    sensingX(i-1,:) = boundXind(i*(electrodeWidth+space)+1:i*(electrodeWidth+space)+electrodeWidth);
+    sensingY(i-1,:) = boundYind(i*(electrodeWidth+space)+1:i*(electrodeWidth+space)+electrodeWidth);
+    for h=1:electrodeWidth
+        potentialGrid(sensingX(i-1,h),sensingY(i-1,h)) = 500000;
+    end
+end
 
 % Plot the electrodes to check
 imagesc(potentialGrid)
