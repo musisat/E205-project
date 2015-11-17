@@ -1,4 +1,4 @@
-function createGrid( R )
+function createBoundary( R )
 %CREATEGRID makes a circular grid with radius R (which determines
 % resolution)
 

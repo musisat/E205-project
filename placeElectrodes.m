@@ -12,8 +12,9 @@ global sensingY % y coordinates of sensing electrodes
 
 electrodeWidth = ceil(electrodeSize*radius);
 space = floor(C/numElectrodes - electrodeWidth); % spacing between electrodes
-% Will need to designate drive electrodes, possibly with a separate array
-% of locations.
+
+% WE SHOULD ACTUALLY SET THE INITIAL ELECTRODE POTENTIALS TO BE ZERO.
+
 
 driveX = [boundXind(1:electrodeWidth); boundXind(electrodeWidth+space+1:2*electrodeWidth+space)];
 driveY = [boundYind(1:electrodeWidth); boundYind(electrodeWidth+space+1:2*electrodeWidth+space)];
