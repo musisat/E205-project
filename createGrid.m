@@ -23,9 +23,9 @@ C = ceil(2*pi*R); % Circumference
 [r,phi] = meshgrid(linspace(R,R,1),linspace(2*pi/C,2*pi,C));
 
 % Find coordinates of boundaries:
-boundX = round(r.*cos(phi));
+boundX = round(r.*cos(phi))';
 boundXind = boundX + R + 1;
-boundY = round(r.*sin(phi));
+boundY = round(r.*sin(phi))';
 boundYind = boundY + R + 1;
 
 % Populate boundaries:

@@ -4,14 +4,32 @@ function placeElectrodes( numElectrodes, electrodeSize )
 % current signal ("drive electrodes"). Electrode size is the ratio of
 % electrode width to radius. numElectrodes must be an even number.
 
-global radius;
-global driveX; % x coordinates of dri
+global radius C boundXind boundYind
+global driveX % x coordinates of drive electrodes
+global driveY % y cooridnates of drive electrodes
+global sensingX % x coordinates of sensing electrodes
+global sensingY % y coordinates of sensing electrodes
 
-electrodeWidth = electrodeSize*radius;
+electrodeWidth = ceil(electrodeSize*radius);
+space = floor(C/numElectrodes - electrodeWidth); % spacing between electrodes
 % Will need to designate drive electrodes, possibly with a separate array
 % of locations.
-driveX = [];
 
+driveX = [boundXind(1:electrodeWidth); boundXind(electrodeWidth+space:2*electrodeWidth+space-1)];
+driveY = [boundYind(1:electrodeWidth); boundYind(electrodeWidth+space:2*electrodeWidth+space-1)];
+
+% Allocate arrays for sensing electrodes
+sensingX = zeros(numElectrodes-2,electrodeWidth);
+sensingY = sensingX;
+
+% Assign coordinates of sensing electrodes
+for i=1:numElectrodes-2
+    sensingX(i,:) = boundXind(2*i*(electrodeWidth+space):2*i*(electrodeWidth+space)+electrodeWidth-1);
+    sensingY(i,:) = boundYind(2*i*(electrodeWidth+space):2*i*(electrodeWidth+space)+electrodeWidth-1);
+end
+
+% Plot the electrodes to check
+potentialGrid(sensingX(
 
 end
 
