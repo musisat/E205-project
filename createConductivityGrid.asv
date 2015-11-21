@@ -1,0 +1,22 @@
+% We start with impedances and then convert to conductivity based on the
+% size of grid points.
+
+global conductivityGrid radius
+
+% We are going to have to determine the size of each cell.
+% May need to assign separate values for impedance and phase or the
+% individual resistors and capacitor in the Cole-Cole model.
+
+% Homogeneous domain:
+% For now assume 0.025 ohm per cell.
+% I don't know if complex impedance matters.
+% Cycle over entire matrix insert impedance values inside the boundary.
+% Cells outside the boundary should have infinite impedance.
+
+for i=0:2*radius
+    for j=0:2*radius
+        if sqrt(i^2+j^2)<radius
+            sfes
+        end
+    end
+end

@@ -33,7 +33,7 @@ for i=1:C
     potentialGrid(boundXind(i),boundYind(i)) = 1000000; % Give boundary large voltage.
     conductivityGrid(boundXind(i),boundYind(i)) = 0;
 end
-imagesc(potentialGrid);
+%imagesc(potentialGrid);
 
 end
 
