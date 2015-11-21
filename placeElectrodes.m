@@ -37,7 +37,7 @@ for i=2:numElectrodes-1
 end
 
 % Plot the electrodes to check
-imagesc(potentialGrid)
+%imagesc(potentialGrid)
 
 end
 
