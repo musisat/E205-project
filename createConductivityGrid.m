@@ -31,4 +31,6 @@ end
 imagesc(conductivityGrid)
 
 % Non-homogeneous domain! Create a way to add a feature to the domain with
-% a plausible conductivity distribution. Maybe add the lungs.
+% a plausible conductivity distribution. Maybe add the lungs, which has
+% about 1/5 the conductivity of surrounding tissue.
+
