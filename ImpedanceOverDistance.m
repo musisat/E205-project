@@ -28,7 +28,7 @@ ave16 = mean(R16);
 
 figure(1)
 plot([13,14,15,16],[ave13,ave14,ave15,ave16],'o')
-corrDist = corr([13,14,15,16]',[ave13,ave14,ave15,ave16]');
+corrDist1 = corr([13,14,15,16]',[ave13,ave14,ave15,ave16]')
 resistivity1 = (0.01*[13,14,15,16].*[ave13,ave14,ave15,ave16])
 
 % Another iteration on different data:
@@ -56,5 +56,6 @@ ave14_2 = mean(R14_2);
 
 figure(2)
 plot([11,12,13,14],[ave11,ave12,ave13_2,ave14_2],'o')
+corrDist2 = corr([11,12,13,14]',[ave11,ave12,ave13_2,ave14_2]')
 resistivity2 = (0.01*[11,12,13,14].*[ave11,ave12,ave13_2,ave14_2])
 
